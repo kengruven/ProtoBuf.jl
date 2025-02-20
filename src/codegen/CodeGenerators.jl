@@ -16,6 +16,7 @@ import ..ProtoBuf: _topological_sort, get_upstream_dependencies!
 
 _is_repeated_field(f::AbstractProtoFieldType) = f.label == Parsers.REPEATED
 _is_repeated_field(::OneOfType) = false
+_is_required_field(f::AbstractProtoFieldType) = f.label == Parsers.REQUIRED
 
 struct ResolvedProtoFile
     import_path::String
